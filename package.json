@@ -1,0 +1,33 @@
+{
+  "name": "Employee-Tracker",
+  "version": "1.0.0",
+  "description": "Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, your challenge is to architect and build a solution for managing a company's employees using node, inquirer, and MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanWichmann/Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanWichmann/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/NathanWichmann/Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^9.0.2",
+    "file-system": "^2.2.2",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "prompt-rawlist": "^2.0.1",
+    "sequelize": "^6.6.2",
+    "util": "^0.12.3"
+  }
+}
