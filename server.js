@@ -58,7 +58,7 @@ const runSearch = () => {
           break;
 
         case "Add a Role":
-          addRoleSearch();
+          addRole();
           break;
 
         case "Add an Employee":
@@ -134,36 +134,58 @@ const addDepartmentSearch = () => {
 
 
 
-const addRoleSearch = () => {
+// steps
+// 1. user needs to input string of new role ---> totally new values
+// 2. user needs to input salary ---> ditto
+// 3. user needs to select department ---> they need to select from the departments table
+
+const addRole = () => {
   const query = "SELECT * FROM department;";
   connection.query(query, (err, res) => {
     if (err) throw err;
     let NewDepartment = [];
-    res.map((element) => {
-      NewDepartment.push(department.name);
-    });
-    NewDepartment.push("new department");
-    console.log(element);
+    res.map((results) => {
+      NewDepartment.push({
+        name: results.name, 
+        value: results.id
+      });
+    })
+    // NewDepartment.push("new department");
     inquirer
       .prompt([
         {
-          name: "NewDepartment",
+          name: "name",
+          type: "input",
+          message: "What is the name of the role you'd like to add?",
+        },
+        {
+          name: "salary",
+          type: "input",
+          message: "money.?", // salary question
+        },
+        {
+          name: "department",
           type: "list",
           message: "Please select a new Department.?",
-          choices: department.name,
+          choices: NewDepartment,
         },
       ])
       .then((res) => {
-        console.log(res)
-        let depart = res.NewDepartment
-        const query = 'SELECT id, title, salary, department_id FROM role;'
-        connection.query(query, (err, res) => {
-          let 
-          res.forEach(({ position, song, year }) => {
-            console.log(`Position: ${position} || Song: ${song} || Year: ${year}`);
-          });
-          runSearch();
+        //INSERT INTO employeedb.role ( title, salary, department_id)
+        //values ("TestTitle", "60000000", 3);
+
+        connection.query(
+          `INSERT INTO employeedb.role ( title, salary, department_id) values ("${res.name}", "${res.salary}", ${res.department})`
+          , (err, res) => {
+            if (err) { 
+              console.log(err)
+            } else {
+              runSearch();
+            }
         });
+
+        // let depart = res.NewDepartment
+        // console.log(res)
       });
   });
 };
