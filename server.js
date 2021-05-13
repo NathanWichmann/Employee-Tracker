@@ -113,7 +113,60 @@ const managerSearch = () => {
   });
 };
 
+const addDepartmentSearch = () => {
+  inquirer
+    .prompt({
+      name: "newDepartment",
+      type: "input",
+      message: "Please select a new Department.",
+    })
+    .then((answer) => {
+      connection.query("INSERT INTO department (department.name) VALUES (?)", answer.newDepartment, (err, res) => {
+        if (err) throw err; {
+          console.log("Department change has been added.. good show");
 
+          runSearch();
+        }
+      
+    });
+});
+};
+
+
+
+const addRoleSearch = () => {
+  const query = "SELECT * FROM department;";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    let NewDepartment = [];
+    res.map((element) => {
+      NewDepartment.push(department.name);
+    });
+    NewDepartment.push("new department");
+    console.log(element);
+    inquirer
+      .prompt([
+        {
+          name: "NewDepartment",
+          type: "list",
+          message: "Please select a new Department.?",
+          choices: department.name,
+        },
+      ])
+      .then((res) => {
+        console.log(res)
+        let depart = res.NewDepartment
+        const query = 'SELECT id, title, salary, department_id FROM role;'
+        connection.query(query, (err, res) => {
+          let 
+          res.forEach(({ position, song, year }) => {
+            console.log(`Position: ${position} || Song: ${song} || Year: ${year}`);
+          });
+          runSearch();
+        });
+      });
+  });
+};
 
 const addEmployeeSearch = () => {
   inquirer
@@ -140,7 +193,7 @@ const addEmployeeSearch = () => {
           name: role.title,
           value: role.id,
         }));
-         
+
         inquirer
           .prompt({
             type: "list",
@@ -155,7 +208,7 @@ const addEmployeeSearch = () => {
             if (err) throw err;
             console.table(res);
           });
-       
+
       });
       // runSearch();
 
