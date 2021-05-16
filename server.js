@@ -202,7 +202,7 @@ const addRole = () => {
       });
   });
 };
-//
+//this adds an empoyee 
 const addEmployeeSearch = () => {
   const query = "SELECT id, title, department_id FROM role";
   connection.query(query, (req, res) => {
@@ -246,7 +246,7 @@ const addEmployeeSearch = () => {
       });
   });
 };
-
+// this updates the role id 
 const updateRoleSearch = () => {
   const query = "SELECT id, title, department_id FROM role";
   connection.query(query, (req, res) => {
@@ -289,7 +289,7 @@ const updateRoleSearch = () => {
       });
   });
 };
-
+// this almost deletes the employee, i just cant quite fix the mysql syntax error
 const deleteEmployee = () => {
   const query = "SELECT first_name, last_name, role_id FROM employee";
   connection.query(query, (req, res) => {
