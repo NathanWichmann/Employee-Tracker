@@ -1,7 +1,5 @@
 # Unit 12 MySQL Homework: Employee Tracker
 
-This repository (Employee Tracker) is an educational homework assignment from the CARL-OTT-FSF-PT-02-20121-U-C course# Unit 12 MySQL Homework: Employee Tracker
-
 This repository (Employee Tracker) is an educational homework assignment from the CARL-OTT-FSF-PT-02-20121-U-C course. It was designed to help students become more familiar with
 mySQL, databases, mySQL queries, express.js and inquirer. These tools are used together to creade a database, that allows a user to create, read, update, and delete information in a database. The C.R.U.D ackrynm is used to descibe these methods with respect to database management. They are the essntial tools used in maintaining a database. 
 
